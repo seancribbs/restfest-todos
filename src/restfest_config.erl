@@ -7,9 +7,10 @@
 
 -spec dispatch() -> [webmachine_dispatcher:route()].
 dispatch() ->
-    lists:flatten([
-        {[], restfest_resource, []}
-    ]).
+    lists:flatten(
+      [
+        restfest_wm_asset:routes()           
+      ]).
 
 web_config() ->
     {ok, App} = application:get_application(?MODULE),
