@@ -35,7 +35,8 @@ to_html(RD, #ctx{todo=T}=Ctx) ->
                             {created, format_date(T#todo.dateCreated)},
                             {updated, format_date(T#todo.dateUpdated)},
                             {complete, T#todo.complete}]),
-    {Body, RD, Ctx}.
+    Layout = layout_dtl:render([{content, Body}]),
+    {Layout, RD, Ctx}.
 
 format_date(Date={_Y,_M,_D}) -> qdate:to_string("%Y-%m-%d", Date);
 format_date(_) -> "".
