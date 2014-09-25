@@ -6,7 +6,10 @@
          routes/0,
          init/1,
          resource_exists/2,
+         
+         %% Reading todos
          to_html/2,
+         encodings_provided/2,
 
          %% Creating todos
          allowed_methods/2,
@@ -37,7 +40,12 @@ init(Mode) ->
             {{trace, Path}, Ctx};
         _ ->
             {ok, Ctx}
-    end. 
+    end.
+
+encodings_provided(RD, Ctx) ->
+    {[{"identity", fun(X) -> X end},
+      {"gzip", fun zlib:gzip/1},
+      {"deflate", fun zlib:zip/1}], RD, Ctx}.
 
 allowed_methods(RD, Ctx) ->
     {['GET', 'HEAD', 'POST'], RD, Ctx}.
