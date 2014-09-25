@@ -1,0 +1,3 @@
+[submodule "priv/www/client"]
+	path = priv/www/client
+	url = git@github.com:joshcodes/restfest-listomatic.git
