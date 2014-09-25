@@ -85,6 +85,7 @@ process_post(RD, Ctx=#ctx{todo=T}) ->
     {true, wrq:set_resp_body(Body, RD1), Ctx1}.
 
 coerce_date(undefined) -> undefined;
+coerce_date(Tuple) when is_tuple(Tuple) -> Tuple;
 coerce_date(DateStr) when is_list(DateStr) ->
     case element(1, qdate:to_date(DateStr)) of
         {0,0,0} -> undefined;
