@@ -11,7 +11,7 @@
         ]).
 
 open() ->
-    dets:open(?TAB, [{keypos, #todo.id}]).
+    dets:open_file(?TAB, [{keypos, #todo.id}]).
 
 insert(T=#todo{}) ->
     dets:insert_new(?TAB, T).
