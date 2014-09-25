@@ -10,6 +10,7 @@
          %% Reading todos
          to_html/2,
          encodings_provided/2,
+         generate_etag/2,
 
          %% Creating todos
          allowed_methods/2,
@@ -75,6 +76,9 @@ resource_exists(RD, Ctx) ->
                     {false, RD, Ctx}
             end
     end.
+
+generate_etag(RD, Ctx=#ctx{todo=#todo{}=Todo}) ->
+    {mochihex:to_hex(crypto:hash(sha, term_to_binary(Todo))), RD, Ctx}.
 
 to_html(RD, #ctx{todo=T}=Ctx) ->
     {ok, Body} = todos_dtl:render(restfest_todos:to_dtl(T)),
