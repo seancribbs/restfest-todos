@@ -60,13 +60,7 @@ resource_exists(RD, Ctx) ->
     end.
 
 to_html(RD, #ctx{todo=T}=Ctx) ->
-    {ok, Body} = todos_dtl:render([{items, [[{id, T#todo.id},
-                                  {title, T#todo.title},
-                                  {due, T#todo.dateDue},
-                                  {notes, T#todo.notes},
-                                  {created, T#todo.dateCreated},
-                                  {updated, T#todo.dateUpdated},
-                                  {complete, T#todo.complete}]]}]),
+    {ok, Body} = todos_dtl:render(restfest_todos:to_dtl(T)),
     {ok, Layout} = layout_dtl:render([{content, Body}]),
     {Layout, RD, Ctx}.
 
