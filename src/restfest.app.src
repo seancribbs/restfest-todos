@@ -16,6 +16,7 @@
   {mod, { restfest_app, []}},
   {env, [
       {web_ip, "0.0.0.0"},
-      {web_port, 8080}
+      {web_port, 8080},
+      {tracing, "/tmp"}
   ]}
  ]}.

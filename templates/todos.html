@@ -20,6 +20,15 @@
             <dt>Date Updated</dt>
             <dd class="dateUpdated">{{ item.updated|date }}</dd>
         </dl>
+        <form action="/todo/{{ item.id }}" method="post">
+        {% if item.complete %}
+        <input type="hidden" value="false" name="todoComplete">
+        <input type="submit" value="Mark incomplete" data-alpsid="todoComplete">
+        {% else %}
+        <input type="hidden" value="true" name="todoComplete">
+        <input type="submit" value="Mark complete" data-alpsid="todoComplete">
+        {% endif %}
+        </form>
         <a href="/todo/{{ item.id }}" rel="canonical">Link to item</a>
     </li>
     {% endfor %}
