@@ -10,6 +10,7 @@ dispatch() ->
     lists:flatten(
       [
        restfest_wm_todo:routes(),
+       restfest_wm_todo_list:routes(),
        restfest_wm_asset:routes()           
       ]).
 
