@@ -28,16 +28,12 @@ resource_exists(RD, Ctx) ->
     end.
 
 to_html(RD, #ctx{todo=T}=Ctx) ->
-    Body = todo_dtl:render([{id, T#todo.id},
+    {ok, Body} = todo_dtl:render([{id, T#todo.id},
                             {title, T#todo.id},
-                            {due, format_date(T#todo.dateDue)},
+                            {due, T#todo.dateDue},
                             {notes, T#todo.notes},
-                            {created, format_date(T#todo.dateCreated)},
-                            {updated, format_date(T#todo.dateUpdated)},
+                            {created, T#todo.dateCreated},
+                            {updated, T#todo.dateUpdated},
                             {complete, T#todo.complete}]),
-    Layout = layout_dtl:render([{content, Body}]),
+    {ok, Layout} = layout_dtl:render([{content, Body}]),
     {Layout, RD, Ctx}.
-
-format_date(Date={_Y,_M,_D}) -> qdate:to_string("%Y-%m-%d", Date);
-format_date(_) -> "".
-

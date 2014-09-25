@@ -8,13 +8,13 @@
 			<dt>Notes</dt>
 			<dd class="todoNotes">{{ notes }}</dd>
 			<dt>Due Date</dt>
-			<dd class="todoDateDue">{{ due }}</dd>
+			<dd class="todoDateDue">{{ due|date }}</dd>
 			<dt>Completed</dt>
-			<dd class="todoComplete">{{ complete}}</dd>
+			<dd class="todoComplete">{{ complete }}</dd>
 			<dt>Date Created</dt>
-			<dd class="dateCreated">{{ created }}</dd>
+			<dd class="dateCreated">{{ created|date }}</dd>
 			<dt>Date Updated</dt>
-			<dd class="dateUpdated">{{ updated }}</dd>
+			<dd class="dateUpdated">{{ updated|date }}</dd>
 		</dl>
 	</li>
 </ul>
