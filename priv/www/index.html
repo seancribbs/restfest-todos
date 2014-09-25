@@ -5,6 +5,15 @@
     <link href="https://gist.githubusercontent.com/mamund/0273c7b652a97baaedb2/raw/a8231a1475457e6b6fee905267889abd76f102a3/restfest2014-todo.xml" rel="profile" />
   </head>
   <body>
-    Hello, RESTfest!
+	<h1>Create Todo</h1>
+	<form action="/todo" method="post">
+		<input type="hidden" name="todoid" class="todoid" />
+		<label>Title<input type="text" name="todoTitle" class="todoTitle" /></label>
+		<label>Notes<input type="text" name="todoNotes" class="todoNotes" /></label>
+		<label>Due Date<input type="date" name="todoDateDue" class="todoDateDue" /></label>
+		<input type="submit" value="Create Todo" class="create" data-alpsid="todoCreate" />
+	</form>
+
+	<a href="/todo" data-alpsid="todoList">Get todos</a>
   </body>
 </html>
