@@ -1,23 +1,24 @@
 <ul class="todoItems">
-	{% for item in items %}
-	<li class="todoItem">
-		<dl>
-			<dt>Id</dt>
-			<dd class="todoid">{{ item.id }}</dd>
-			<dt>Title</dt>
-			<dd class="todoTitle">{{ item.title }}</dd>
-			<dt>Notes</dt>
-			<dd class="todoNotes">{{ item.notes }}</dd>
-			<dt>Due Date</dt>
-			<dd class="todoDateDue">{{ item.due|date }}</dd>
-			<dt>Completed</dt>
-			<dd class="todoComplete">{{ item.complete }}</dd>
-			<dt>Date Created</dt>
-			<dd class="dateCreated">{{ item.created|date }}</dd>
-			<dt>Date Updated</dt>
-			<dd class="dateUpdated">{{ item.updated|date }}</dd>
-		</dl>
-		<a href="/todo/{{ item.id }}" rel="canonical">Link to item</a>
-	</li>
-	{% endfor %}
+    {% for item in items %}
+    <li class="todoItem">
+        <dl>
+            <dt>Id</dt>
+            <dd class="todoid">{{ item.id }}</dd>
+            <dt>Title</dt>
+            <dd class="todoTitle">{{ item.title }}</dd>
+            <dt>Notes</dt>
+            <dd class="todoNotes">{{ item.notes }}</dd>
+            <dt>Due Date</dt>
+            <dd class="todoDateDue">{{ item.due|date }}</dd>
+            <dt>Completed</dt>
+            <dd class="todoComplete">{{ item.complete }}</dd>
+            <dt>Date Created</dt>
+            <dd class="dateCreated">{{ item.created|date }}</dd>
+            <dt>Date Updated</dt>
+            <dd class="dateUpdated">{{ item.updated|date }}</dd>
+        </dl>
+        <a href="/todo/{{ item.id }}" rel="canonical">Link to item</a>
+    </li>
+    {% endfor %}
 </ul>
+<a href="/" rel="up">Home</a>
