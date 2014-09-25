@@ -61,8 +61,7 @@ resource_exists(RD, Ctx) ->
 
 to_html(RD, #ctx{todo=T}=Ctx) ->
     {ok, Body} = todos_dtl:render(restfest_todos:to_dtl(T)),
-    {ok, Layout} = layout_dtl:render([{content, Body}]),
-    {Layout, RD, Ctx}.
+    {Body, RD, Ctx}.
 
 accept_form(RD, Ctx) ->
     PostData = mochiweb_util:parse_qs(wrq:req_body(RD)),

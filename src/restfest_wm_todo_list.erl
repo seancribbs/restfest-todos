@@ -19,5 +19,4 @@ init(_) ->
 to_html(RD, Ctx) ->
     Todos = restfest_todos:all(),
     {ok, Body} = todos_dtl:render(restfest_todos:to_dtl(Todos)),
-    {ok, Layout} = layout_dtl:render([{content, Body}]),
-    {Layout, RD, Ctx}.
+    {Body, RD, Ctx}.
