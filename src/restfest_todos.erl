@@ -30,4 +30,4 @@ find(ID) ->
 
 
 new_id() ->
-    mochihex:to_hex(crypto:hash(sha1, term_to_binary({erlang:now(), erlang:make_ref()}))).
+    mochihex:to_hex(crypto:hash(sha, term_to_binary({erlang:now(), erlang:make_ref()}))).

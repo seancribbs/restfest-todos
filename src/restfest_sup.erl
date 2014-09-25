@@ -17,4 +17,5 @@ init([]) ->
            {webmachine_mochiweb, start, [restfest_config:web_config()]},
            permanent, 5000, worker, [mochiweb_socket_server]},
     Processes = [Web],
+    restfest_todos:open(),
     {ok, { {one_for_one, 10, 10}, Processes} }.

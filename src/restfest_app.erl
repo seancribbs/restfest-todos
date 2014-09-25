@@ -7,6 +7,7 @@
 ]).
 
 start(_Type, _StartArgs) ->
+    application:start(qdate),
     restfest_sup:start_link().
 
 stop(_State) ->
